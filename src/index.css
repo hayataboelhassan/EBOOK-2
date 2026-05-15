@@ -1,0 +1,12 @@
+@import "tailwindcss";
+.tajawal{
+font-family:'Tajawal', sans-serif;
+}
+
+.cairo{
+font-family:'Cairo', sans-serif;
+}
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 25px !important;
+}
