@@ -7,146 +7,133 @@ import { useRef } from "react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-function PreviewSection() {
+const navBtnClass =
+  "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#cb9f30] text-white shadow-lg transition hover:scale-110 sm:h-11 sm:w-11 md:h-12 md:w-12";
 
+function PreviewSection() {
   const swiperRef = useRef(null);
 
   return (
-<motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
->
-    <div
-      className="
-        relative
-        py-20
-        overflow-hidden
-        flex flex-col items-center
-      rounded-4xl
-     drop-shadow-[0_10px_20px_rgba(227,183,35,0.45)]
-     m-15
-
-      "
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="w-full overflow-hidden"
     >
+      <h2 className="tajawal mb-5 mt-6 px-4 text-center text-2xl font-bold leading-snug text-black md:mb-8 md:text-3xl">
+        تصفحى بعض صفحات الدليل
+      </h2>
 
-      {/* Background Image */}
       <div
         className="
-          absolute inset-0
-          bg-cover
-          bg-center
-          opacity-10
+          relative
+          flex flex-col items-center
+          overflow-hidden
+          rounded-3xl
+          px-4 py-6
+          sm:px-6 sm:py-8
+          md:px-8 md:py-10
         "
-        style={{
-          backgroundImage: "url('/media/bg.jpg')",
-        }}
-      ></div>
-
-      {/* Overlay */}
-      {/* Content */}
-      <div className="relative z-10 w-full flex flex-col items-center">
-
-        <h2 className="text-4xl font-bold text-center mb-14">
-          Preview Pages
-        </h2>
-
-        <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-         loop={false}
-          modules={[EffectCoverflow]}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 180,
-            modifier: 2.5,
-            scale: 0.9,
-            slideShadows: false,
+      >
+        {/* Background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-5"
+          style={{
+            backgroundImage: "url('/EBOOK-2/media/bg.jpg')",
           }}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          className="w-full max-w-6xl"
-        >
+        />
 
-          {[
-            "/media/ScreenShot Tool -20260513043523.png",
-            "/media/ScreenShot Tool -20260513044202.png",
-            "/media/ScreenShot Tool -20260513044056.png",
-            "/media/ScreenShot Tool -20260513043732.png",
-          ].map((image, index) => (
+        {/* Content */}
+        <div className="relative z-10 flex w-full flex-col items-center">
+          <Swiper
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            loop={false}
+            slidesPerView={1.2}
+            breakpoints={{
+              640: {
+                slidesPerView: 1.5,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 2.2,
+              },
+            }}
+            modules={[EffectCoverflow]}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 150,
+              modifier: 2,
+              scale: 0.9,
+              slideShadows: false,
+            }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            className="w-full max-w-4xl overflow-hidden"
+          >
+            {[
+              "/EBOOK-2/media/ScreenShot Tool -20260513043523.png",
+              "/EBOOK-2/media/ScreenShot Tool -20260513044202.png",
+              "/EBOOK-2/media/ScreenShot Tool -20260513044056.png",
+              "/EBOOK-2/media/ScreenShot Tool -20260513043732.png",
+            ].map((image, index) => (
+              <SwiperSlide key={index}>
+                <div
+                  className="
+                    max-w-full
+                    overflow-hidden
+                    rounded-2xl
+                    bg-white
+               shadow-[0_20px_60px_rgba(218,165,32,0.3)]
+                    transition-all
+                    duration-500
+                    hover:scale-[1.02]
+                  "
+                >
+                  <img
+                    src={image}
+                    alt=""
+                    className="
+                      h-[260px]
+                      w-full
+                      object-cover
+                      object-center
+                      sm:h-[320px]
+                      md:h-[380px]
+                      lg:h-[420px]
+                    "
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-            <SwiperSlide
-              key={index}
-              className="!w-[300px] md:!w-[360px]"
+          {/* Navigation Buttons */}
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => swiperRef.current?.slidePrev()}
+              className={navBtnClass}
             >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
 
-              <div
-                className="
-                  rounded-[28px]
-                  overflow-hidden
-                  bg-white
-                  shadow-[0_15px_40px_rgba(0,0,0,0.18)]
-                  hover:scale-105
-                  transition-all
-                  duration-500
-                "
-              >
-                <img
-                  src={image}
-                  className="w-full h-[500px] object-cover"
-                />
-              </div>
-
-            </SwiperSlide>
-
-          ))}
-
-        </Swiper>
-
-        {/* Buttons */}
-        <div className="flex items-center gap-5 mt-10">
-
-          <button
-          onClick={() => swiperRef.current?.slidePrev()}
-            className="
-              w-14 h-14
-              rounded-full
-              bg-[#cb9f30]
-              text-white
-              flex items-center justify-center
-              shadow-lg
-              hover:scale-110
-              transition
-            "
-          >
-            <ChevronLeft size={28} />
-          </button>
-
-          <button
-          onClick={() => swiperRef.current?.slideNext()}
-            className="
-              w-14 h-14
-              rounded-full
-              bg-[#cb9f30]
-              text-white
-              flex items-center justify-center
-              shadow-lg
-              hover:scale-110
-              transition
-            "
-          >
-            <ChevronRight size={28} />
-          </button>
-
+            <button
+              type="button"
+              onClick={() => swiperRef.current?.slideNext()}
+              className={navBtnClass}
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
         </div>
-
       </div>
-    </div>
     </motion.div>
   );
 }

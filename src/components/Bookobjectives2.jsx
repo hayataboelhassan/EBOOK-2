@@ -1,93 +1,50 @@
-
-// import { X } from 'lucide-react';
-import { Sparkles } from 'lucide-react';
-import { motion } from "framer-motion";
-function Bookobjectives2() {
-  return (<>
-  <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
->
-  <div className="py-5">
-<div className="flex flex-col items-center justify-center pb-10 gap-3">
-
-  {/* Title with lines */}
-  <div className="flex items-center justify-center gap-4">
-
-    <span className="w-20 h-[2px] bg-[#cb9f30] mt-3"></span>
-
-    <h1 className="text-3xl font-bold  text-center tajawal">
-  ماذا ستجدين بالداخل الدليل؟
-    </h1>
-
-    <span className="w-20 h-[2px] bg-[#cb9f30] mt-3"></span>
-
-  </div>
-</div>
-   <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-6 justify-center items-center mx-30">
-
-  {/* Card 1 */}
-  <div className="group p-6 flex flex-col items-center text-center w-full hover:scale-105 transition-all duration-300
-  bg-white/70 backdrop-blur-sm rounded-2xl border border-transparent hover:border-[#e3b723] shadow-sm hover:shadow-xl">
-  <div className="  pX-6 py-2 rounded-full mb-4">
-       <Sparkles 
-    size={28}
-    className="text-[#cb9f30]"
-    strokeWidth={3}
-  />
-    </div>
-<h3 className="font-bold  mb-2 cairo" >   تمرين إيقاف التحليل
-وغيرها من التمارين+10 </h3>
- 
-  </div>
-
-  {/* Card 2 */}
-  <div className="group p-6 flex flex-col items-center text-center w-full hover:scale-105 transition-all duration-300
-  bg-white/70 backdrop-blur-sm rounded-2xl border border-transparent hover:border-[#e3b723] shadow-sm hover:shadow-xl">
-
-      <div className="  p-4 rounded-full mb-4">
-       <Sparkles 
-    size={28}
-    className="text-[#cb9f30]"
-    strokeWidth={3}
-  />
-    </div>
-<h3 className="font-bold mb-2  cairo" >    تمرين معرفة العائق  </h3>
-
-
-  </div>
-
-  {/* Card 3 */}
- <div className="group p-6 flex flex-col items-center text-center w-full hover:scale-105 transition-all duration-300
-  bg-white/70 backdrop-blur-sm rounded-2xl border border-transparent hover:border-[#e3b723] shadow-sm hover:shadow-xl">
-  <div className="  p-4 rounded-full mb-4">
-       <Sparkles 
-    size={28}
-    className="text-[#cb9f30]"
-    strokeWidth={3}
-  />
-    </div>
-
-  <h3 className="font-bold  mb-2 cairo">تمرين فهم نمطك الحالي</h3>
-
-  
-</div>
-   <div className="group p-6 flex flex-col items-center text-center w-full hover:scale-105 transition-all duration-300
-  bg-white/70 backdrop-blur-sm rounded-2xl border border-transparent hover:border-[#e3b723] shadow-sm hover:shadow-xl">
-
-    <div className="  p-4 rounded-full mb-4">
-       <Sparkles 
-    size={28}
-    className="text-[#cb9f30]"
-    strokeWidth={3}
-  />
-    </div>
-<h3 className="font-bold  mb-2 cairo" >  تمرين صوتك الداخلي  </h3>
-  </div>
-  </div>
-  </div>
-  </motion.div>
-  </>)}
-  export default Bookobjectives2
+import { Sprout, Footprints, Compass, Wrench, Eye } from "lucide-react";
+import { motion } from "framer-motion";
+import { pageWrap } from "../utils/layout";
+
+const items = [
+  { icon: Sprout, label: "تغيير داخلي مستدام من جذورك" },
+  { icon: Footprints, label: "خطوات واضحة تساعدك تتحركين بثبات" },
+  { icon: Compass, label: "تمارين اكتشافية تطبيقية" },
+  { icon: Wrench, label: "أدوات عملية للتعامل مع التفكير والمشاعر" },
+  { icon: Eye, label: "فهم أعمق لنفسك من منظور الفطرة" },
+];
+
+function Bookobjectives2() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="w-full min-w-0 overflow-x-hidden"
+    >
+      <section className="py-16 md:py-18">
+        <div className={pageWrap}>
+          <h2 className="tajawal mb-12 text-center text-2xl font-bold text-black md:text-3xl">
+            ماذا ستجدين داخل الدليل؟
+          </h2>
+
+          <div className="flex flex-wrap items-start justify-center gap-8 md:gap-10 lg:gap-12">
+            {items.map(({ icon: Icon, label }) => (
+              <div
+                key={label}
+                className="flex w-[140px] max-w-full flex-col items-center text-center sm:w-[180px]"
+              >
+                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#C5A059]">
+                  <Icon className="h-6 w-6 text-[#C5A059]" strokeWidth={1.5} />
+                </div>
+                <p className="text-xs font-bold leading-snug text-gray-800 cairo md:text-lg">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </motion.div>
+  );
+}
+
+export default Bookobjectives2;
+

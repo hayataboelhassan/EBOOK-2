@@ -1,101 +1,163 @@
 import { useState } from "react";
+
 import { ChevronDown } from "lucide-react";
+
 import { motion } from "framer-motion";
+
+import { pageWrap } from "../utils/layout";
+
+
+
 function Faq() {
+
   const [openIndex, setOpenIndex] = useState(null);
 
+
+
   const data = [
+
     {
-      q: "هل يناسبني لو أنا مبتدئة؟",
-      a: "نعم.",
+
+      q: "هل يناسبني حتى لو كنت مبتدئة؟",
+
+      a: "نعم، الدليل مصمم بطريقة بسيطة وعملية تناسب جميع المستويات.",
+
     },
+
     {
-      q: "كم مدته؟",
-      a: ".تطبقينه حسب سرعتك ",
+
+      q: "كم يستغرق إنهاء الدليل؟",
+
+      a: "تطبقينه على وتيرتك الخاصة، بدون ضغط زمني.",
+
     },
+
     {
-      q:  " هل فيه تمارين ؟ ",
-      a:   " . نعم، عملية",
+
+      q: "هل يحتوي على تمارين عملية؟",
+
+      a: "نعم، تمارين تطبيقية من واقع الجلسات.",
+
     },
+
     {
-  q: "هل أحمله مباشرة؟",
-  a: "نعم فور الشراء. النسخة الأولى بسعر الإطلاق 9$، باقي أيام قليلة."
-}
+
+      q: "هل أستلم الدليل مباشرة بعد الشراء؟",
+
+      a: "نعم، تحصلين على رابط التحميل فوراً بعد إتمام الدفع.",
+
+    },
+
   ];
 
+
+
   const toggle = (index) => {
+
     setOpenIndex(openIndex === index ? null : index);
+
   };
 
+
+
   return (
+
     <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
->
-    <div className="py-20 px-6 md:px-40 ">
 
-  <div className="flex flex-col items-center justify-center pb-20 gap-3">
+      initial={{ opacity: 0, y: 80 }}
 
-  {/* Title with lines */}
+      whileInView={{ opacity: 1, y: 0 }}
 
- <div className="flex items-center justify-center gap-4">
+      transition={{ duration: 0.8 }}
 
-    <span className="w-20 h-[2px] bg-[#cb9f30] mt-3"></span>
+      viewport={{ once: true }}
 
-    <h1 className="text-3xl font-bold  text-center tajawal">
-  الأسئلة الشائعة
-    </h1>
+      className="w-full min-w-0 overflow-x-hidden"
 
-    <span className="w-20 h-[2px] bg-[#cb9f30] mt-3"></span>
+    >
 
-  </div>
-  {/* Subtitle under title */}
-</div>
-      {/* FAQ */}
-      <div className="space-y-4 mx-50">
+      <section className="py-16 md:py-15">
 
-        {data.map((item, index) => (
-          <div
-  key={index}
-  className="border-[#e3b723] border rounded-4xl p-3 shadow-sm hover:shadow-md transition bg-white text-right"
->
+        <div className={`${pageWrap} mx-auto max-w-3xl min-w-0`}>
 
-  {/* Question */}
-  <div
-    onClick={() => toggle(index)}
-    className="flex items-center cursor-pointer flex-row-reverse justify-between"
-  >
+          <h2 className="tajawal mb-10 text-center text-2xl font-bold text-black md:text-3xl">
 
-    {/* Question Text */}
-    <h2 className="font-semibold text-lg flex-1 text-right cairo">
-      {item.q}
-    </h2>
+            الأسئلة الشائعة
 
-    {/* Icon */}
-    <ChevronDown
-      className={`transition-transform duration-300 text-[#e3b723] ${
-        openIndex === index ? "rotate-180" : ""
-      }`}
-    />
+          </h2>
 
-  </div>
 
-  {/* Answer */}
-  {openIndex === index && (
-    <p className="mt-4 text-gray-600 leading-relaxed text-right cairo">
-      {item.a}
-    </p>
-  )}
 
-</div>
-        ))}
+          <div className="space-y-3 md:px-30">
 
-      </div>
-    </div>
+            {data.map((item, index) => (
+
+              <div
+
+                key={index}
+
+                className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm  "
+
+              >
+
+                <button
+
+                  type="button"
+
+                  onClick={() => toggle(index)}
+
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-right"
+
+                >
+
+                  <span className="min-w-0 flex-1 text-base font-semibold text-black cairo">
+
+                    {item.q}
+
+                  </span>
+
+                  <ChevronDown
+
+                    className={`h-5 w-5 shrink-0 text-gray-400 transition-transform duration-300 ${
+
+                      openIndex === index ? "rotate-180" : ""
+
+                    }`}
+
+                  />
+
+                </button>
+
+
+
+                {openIndex === index && (
+
+                  <p className="border-t border-gray-50 px-5 pb-4 text-right leading-relaxed text-gray-600 cairo">
+
+                    {item.a}
+
+                  </p>
+
+                )}
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
     </motion.div>
+
   );
+
 }
 
+
+
 export default Faq;
+
+

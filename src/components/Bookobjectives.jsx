@@ -1,106 +1,118 @@
-
-import { X } from 'lucide-react';
+import {
+  RotateCcw,
+  Volume2,
+  CircleDashed,
+  Brain,
+  HelpCircle,
+  Play,
+} from "lucide-react";
 import { motion } from "framer-motion";
+import { pageWrap } from "../utils/layout";
+import { useRef } from "react";
+const problems = [
+  {
+    icon: RotateCcw,
+    text: "تبدين وما تستمرين وترجعين لنفس النقطة؟",
+  },
+  {
+    icon: Volume2,
+    text: "تلومين نفسك وصوتك الداخلي أعلى من حدسك؟",
+  },
+  {
+    icon: CircleDashed,
+    text: "تائهين.. وتعيدين النفس الدائرة؟",
+  },
+  {
+    icon: Brain,
+    text: "تحللين كثير وتتعبين أكثر",
+  },
+  {
+    icon: HelpCircle,
+    text: "تفهمين كل شيء بس ما يتغير شيء؟",
+  },
+];
+
 function Bookobjectives() {
-  return (<>
-  <motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
+  const videoRef = useRef(null);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="w-full min-w-0 overflow-x-hidden "
+    >
+      <section id="objectives" className="py-16 md:py-12 m-0">
+        <div className={pageWrap}>
+          <h2 className="tajawal mb-12 text-center text-2xl font-bold text-black md:text-3xl">
+            يمكن هذي مشكلتك...
+          </h2>
+
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+            {problems.map(({ icon: Icon, text }, index) => (
+  <div
+    key={text}
+    className={`
+      flex min-w-0 flex-col items-center rounded-xl border border-gray-100 bg-white p-5 text-center shadow-sm transition hover:shadow-md
+      
+      ${index === 4 ? "col-span-2 mx-auto w-[70%] sm:w-full lg:col-span-1" : ""}
+    `}
+  >
+    <div className="mb-4 flex h-12 w-12 items-center justify-center">
+      <Icon className="h-8 w-8 text-[#C5A059]" strokeWidth={1.5} />
+    </div>
+
+    <p className="text-base font-semibold leading-relaxed text-gray-800 sm:text-lg cairo">
+      {text}
+    </p>
+  </div>
+))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 md:py-16">
+        <div
+          className={`${pageWrap} flex min-w-0 flex-col items-center gap-10 md:flex-row md:gap-16`}
+        >
+          <div className="w-full min-w-0 text-center md:w-1/2 md:justify-center">
+          
+            <span className="mb-5 inline-block rounded-full border font-semibold border-[#C5A059] px-4 py-1 text-sm  text-[#C5A059] cairo">
+           شاهدي كيف
+          </span>
+            <h2 className="tajawal mb-4 text-2xl font-bold text-black md:text-3xl">
+              يعلمك هذا الدليل طريقة مختلفة للتعامل مع نفسك
+            </h2>
+            <p className="mb-6 leading-relaxed text-gray-600 cairo font-semibold">
+              فيديو قصير يوضح لك الفكرة الأساسية للدليل وكيف ممكن يغير طريقة
+              تفكيرك وحياتك.
+            </p>
+          <button
+  type="button"
+  onClick={() => videoRef.current?.play()}
+  className="mx-auto flex max-w-full items-center gap-2 rounded-4xl bg-black px-6 py-3 font-bold text-white transition hover:bg-gray-800 sm:px-8 cairo"
 >
-  <div className="py-10">
-<div className="flex flex-col items-center justify-center pb-15 gap-3">
+  <Play className="h-4 w-4 fill-white" />
+  شاهدي الفيديو الآن
+</button>
+          </div>
 
-  {/* Title with lines */}
-  <div className="flex items-center justify-center gap-4">
-
-    <span className="w-20 h-[2px] bg-[#cb9f30] mt-5"></span>
-
-    <h1 className="text-3xl font-bold  text-center tajawal">
-    هذا الدليل لكي؟ لان
-    </h1>
-
-    <span className="w-20 h-[2px] bg-[#cb9f30] mt-5"></span>
+         <div className="relative w-full min-w-0 md:w-1/2">
+  <div className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+    
+    <video
+    ref={videoRef}
+      src="/EBOOK-2/media/WhatsApp Video 2026-05-20 at 10.33.57 PM.mp4"
+      controls
+      className="aspect-video w-full object-cover"
+    />
 
   </div>
-
-  {/* Subtitle under title */}
-  <p className=" text-center mt-3 cairo font-bold text-xl text-gray-500 ">
- ..... يمكن مشكلتك مو إنك ما تعرفين نفسك
-  </p>
-
 </div>
-   <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-6 justify-center items-center mx-40">
+        </div>
+      </section>
+    </motion.div>
+  );
+}
 
-  {/* Card 1 */}
-  <div className="group p-6 flex flex-col items-center text-center w-full hover:scale-105 transition-all duration-300
-  bg-white/70 backdrop-blur-sm rounded-2xl border border-transparent hover:border-[#e3b723] shadow-sm hover:shadow-xl">
-
-     <div className=" bg-[#fee2e4] p-4 rounded-full mb-4">
-       <X
-    size={28}
-    className="text-[#ed888f]"
-    strokeWidth={3.5}
-  />
-    </div>
-<h1 className="font-bold text-xl mb-2 cairo" >  ...تسمعين نفسك  </h1>
-    <h2 className="font-bold text-xl mb-2 cairo"> لكن ما تثقين فيها
-</h2>
-  </div>
-
-  {/* Card 2 */}
-  <div className="group p-6 flex flex-col items-center text-center w-full hover:scale-105 transition-all duration-300
-  bg-white/70 backdrop-blur-sm rounded-2xl border border-transparent hover:border-[#e3b723] shadow-sm hover:shadow-xl">
-
-     <div className=" bg-[#fee2e4] p-4 rounded-full mb-4">
-       <X
-    size={28}
-    className="text-[#ed888f]"
-    strokeWidth={3.5}
-  />
-    </div>
-<h1 className="font-bold text-xl mb-2 cairo" >  ...تحللين  </h1>
-<h2 className="font-bold text-xl mb-2 cairo">  وتتعبين</h2>
-
-  </div>
-
-  {/* Card 3 */}
- <div className="group p-6 flex flex-col items-center text-center w-full hover:scale-105 transition-all duration-300
-  bg-white/70 backdrop-blur-sm rounded-2xl border border-transparent hover:border-[#e3b723] shadow-sm hover:shadow-xl">
-
-    <div className=" bg-[#fee2e4] p-4 rounded-full mb-4">
-       <X
-    size={28}
-    className="text-[#ed888f]"
-    strokeWidth={3.5}
-  />
-    </div>
-
-  <h1 className="font-bold text-xl mb-2 cairo">...تبدأين</h1>
-
-  <h2 className="font-bold text-xl mb-2 flex items-center justify-center gap-2 cairo">
-    وترجعين
-  </h2>
-
-</div>
-   <div className="group p-6 flex flex-col items-center text-center w-full hover:scale-105 transition-all duration-300
-  bg-white/70 backdrop-blur-sm rounded-2xl border border-transparent hover:border-[#e3b723] shadow-sm hover:shadow-xl">
-
-    <div className=" bg-[#fee2e4] p-4 rounded-full mb-4">
-       <X
-    size={28}
-    className="text-[#ed888f]"
-    strokeWidth={3.5}
-  />
-    </div>
-<h1 className="font-bold text-xl mb-2 cairo" >  ...تفهمين  </h1>
-    <h2 className="font-bold text-xl mb-2 cairo"> لكن ما تتغيرين</h2>
-  </div>
-  </div>
-  <h1 className="font-bold text-xl mb-2 text-center mt-10 text-gray-600 Cairo" > 🤍مو فيك المشكلة…في الطريقة فقط </h1>
-  <div><h1 className="font-bold text-7xl mb-2 text-center mt-10 text-gray-600 Cairo"  >هنا فيديو</h1></div>
-  </div>
-  </motion.div>
-  </>)}
-  export default Bookobjectives
+export default Bookobjectives;
