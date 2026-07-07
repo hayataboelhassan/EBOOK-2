@@ -40,7 +40,7 @@ function PreviewSection() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-5"
           style={{
-            backgroundImage: "url('/EBOOK-2/media/bg.jpg')",
+            backgroundImage: "url('media/bg.jpg')",
           }}
         />
 
