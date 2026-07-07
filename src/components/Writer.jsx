@@ -22,7 +22,7 @@ function Writer() {
               <div className="relative">
                 <div className="absolute -inset-2 rounded-2xl border-2 border-[#C5A059] opacity-40" />
                 <img
-                  src="/EBOOK-2/media/WhatsApp Image 2026-05-10 at 8.36.15 PM.jpeg"
+                  src="media/WhatsApp Image 2026-05-10 at 8.36.15 PM.jpeg"
                   alt="غفران"
               className="relative z-10 w-[170px] h-[170px] md:w-[230px] md:h-[230px] object-cover rounded-2xl shadow-lg"
                 />

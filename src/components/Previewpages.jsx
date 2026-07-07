@@ -78,10 +78,10 @@ function PreviewSection() {
             className="w-full max-w-4xl overflow-hidden"
           >
             {[
-              "/EBOOK-2/media/ScreenShot Tool -20260513043523.png",
-              "/EBOOK-2/media/ScreenShot Tool -20260513044202.png",
-              "/EBOOK-2/media/ScreenShot Tool -20260513044056.png",
-              "/EBOOK-2/media/ScreenShot Tool -20260513043732.png",
+              "media/ScreenShot Tool -20260513043523.png",
+              "media/ScreenShot Tool -20260513044202.png",
+              "media/ScreenShot Tool -20260513044056.png",
+              "media/ScreenShot Tool -20260513043732.png",
             ].map((image, index) => (
               <SwiperSlide key={index}>
                 <div

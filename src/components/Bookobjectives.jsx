@@ -102,7 +102,7 @@ function Bookobjectives() {
     
     <video
     ref={videoRef}
-      src="/EBOOK-2/media/WhatsApp Video 2026-05-20 at 10.33.57 PM.mp4"
+      src="media/copy_CACC8A8D-A65A-4D0A-A12D-3AAA1C7076F6.mov"
       controls
       className="aspect-video w-full object-cover"
     />

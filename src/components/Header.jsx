@@ -10,6 +10,7 @@ const features = [
 ];
 
 function Header() {
+ ;
   return (
    <section
   id="hero"
@@ -44,14 +45,20 @@ function Header() {
       </p>
 
       <div className="mb-8 flex flex-col gap-3">
-        <button
-          type="button"
-          className="flex w-full items-center justify-center gap-2 rounded-full bg-black px-6 py-3.5 text-base font-bold text-white transition hover:bg-gray-800 cairo"
-        >
-          <ShoppingCart className="h-5 w-5 shrink-0" />
-          احصلي على الدليل الآن
-        </button>
-
+ 
+<button
+  type="button"
+  onClick={() =>
+    window.open(
+      "https://ghfuran-business.systeme.io/356328bd",
+      "_blank"
+    )
+  }
+  className="flex w-full items-center justify-center gap-2 rounded-full bg-black px-6 py-3.5 text-base font-bold text-white transition hover:bg-gray-800 cairo"
+>
+  <ShoppingCart className="h-5 w-5 shrink-0" />
+  احصلي على الدليل الآن
+</button>
         <button
           type="button"
           className="w-full rounded-full border border-black bg-transparent px-6 py-3.5 text-base font-bold text-black transition hover:bg-gray-50 cairo"
@@ -87,7 +94,7 @@ function Header() {
       className="order-1 flex w-full justify-center md:order-2 md:w-[42%]"
     >
       <img
-        src="/EBOOK-2/media/Gemini_Generated_Image_9pbwq29pbwq29pbw-removebg-preview.png"
+        src="media/Gemini_Generated_Image_9pbwq29pbwq29pbw-removebg-preview.png"
         alt="غلاف الدليل"
         className="w-full max-w-[260px] object-contain sm:max-w-[340px] md:max-w-[420px] lg:max-w-[500px]"
       />

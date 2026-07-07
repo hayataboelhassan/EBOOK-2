@@ -138,11 +138,18 @@ useEffect(() => {
                 <div className="mt-6 p-2 sm:mt-8 sm:p-4 md:mt-10">
               <button
                 type="button"
+                onClick={() =>
+    window.open(
+      "https://ghfuran-business.systeme.io/356328bd",
+      "_blank"
+    )
+  }
                 className="flex w-full items-center justify-center gap-2 rounded-4xl bg-black px-3 py-3 text-sm font-bold text-white transition hover:bg-gray-800 sm:py-3.5 sm:text-base cairo"
               >
                 <ShoppingCart className="h-5 w-5" />
                 احصلي على الدليل الآن بـ $9 فقط
               </button>
+   
             </div>
             <p className="mt-3 text-center text-xs text-gray-700 sm:text-sm cairo">العرض ينتهى بعد انتهاء العد التنازلى</p>
               </div>

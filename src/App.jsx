@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom"
 
 import Navbar from './components/Navbar'
 import Header from './components/Header'
@@ -13,24 +14,19 @@ import OfferPopup from './components/Offerpopup'
 import Pricing from './components/Pricing'
 import TrustBadges from './components/TrustBadges'
 import Footer from './components/Footer'
-import { pageWrap } from './utils/layout'
 
-function App() {
+
+function Home() {
   return (
-   <div
-  dir="rtl"
-  lang="ar"
-  className="min-h-screen overflow-x-hidden bg-[#FDFBF7] text-black"
->
+    <>
       <OfferPopup />
       <Navbar />
-    <main className="relative w-full max-w-full overflow-hidden">
+
+      <main className="relative w-full max-w-full overflow-hidden">
         <Header />
         <Bookobjectives />
         <Bookobjectives2 />
-        <div className={`${pageWrap} w-full min-w-0`}>
-          <PreviewSection />
-        </div>
+        <PreviewSection />
         <Beforeandafterguide />
         <Pricing />
         <TrustBadges />
@@ -39,7 +35,19 @@ function App() {
         <Sale />
         <Faq />
       </main>
+
       <Footer />
+    </>
+  )
+}
+
+function App() {
+  return (
+    <div dir="rtl" className="min-h-screen bg-[#FDFBF7] text-black">
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+      </Routes>
     </div>
   )
 }

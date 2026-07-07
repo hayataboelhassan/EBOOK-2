@@ -22,6 +22,12 @@ function Sale() {
     </h2>
 
     <button
+    onClick={() =>
+    window.open(
+      "https://ghfuran-business.systeme.io/356328bd",
+      "_blank"
+    )
+  }
       type="button"
       className="mt-2 flex items-center justify-center gap-2 rounded-3xl bg-black md:px-15 md:py-3 px-10 py-2 text-sm md:text-base font-bold text-white transition hover:bg-gray-800 cairo"
     >
