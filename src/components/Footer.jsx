@@ -31,7 +31,7 @@ function Footer() {
     onClick={(e) => e.stopPropagation()}
 className="relative flex h-[88vh] w-full max-w-5xl flex-col overflow-hidden rounded-[32px] border border-[#E6D5B8] bg-[#FDFBF7] shadow-[0_25px_70px_rgba(0,0,0,.18)]"  >
      <div className="flex items-center justify-between border-b border-[#E6D5B8] bg-white px-8 py-6">
- <h2 className="tajawal text-3xl font-extrabold text-[#C5A059]" >سياسة الدليل   
+ <h2 className="tajawal text-2xl  md:text-3xl font-extrabold text-[#C5A059]" >سياسة الدليل   
   </h2>
 
  <button
@@ -42,9 +42,9 @@ className="relative flex h-[88vh] w-full max-w-5xl flex-col overflow-hidden roun
 </button>
 </div>
 
-<div className="flex-1 overflow-y-auto bg-[#FDFBF7] px-8 py-8">
+<div className="flex-1 overflow-y-auto bg-[#FDFBF7] md:px-8 md:py-8 px-2 py-5">
  <div className="rounded-3xl border border-[#E6D5B8] bg-white p-8 shadow-lg">
-  <h3 className="tajawal mb-6 text-center text-3xl font-extrabold text-[#C5A059]">
+  <h3 className="tajawal mb-6 text-center text-2xl  md:text-3xl font-extrabold text-[#C5A059]">
     📖 سياسة الدليل
   </h3>
 
