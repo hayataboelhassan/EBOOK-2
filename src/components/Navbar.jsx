@@ -146,7 +146,12 @@ function Navbar() {
 
           {/* CTA */}
           <button
-            onClick={() => scrollToSection("hero")}
+         onClick={() =>
+    window.open(
+      "https://ghfuran-business.systeme.io/356328bd",
+      "_blank"
+    )
+  }
             className="rounded-full bg-black px-5 py-2 text-sm font-bold text-white hover:bg-gray-800 cairo"
           >
             احصلي على الدليل

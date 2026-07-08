@@ -126,7 +126,12 @@ function OfferPopup() {
                   ))}
                 </ul>
 
-                <button className="mt-8 flex w-full items-center justify-center gap-1 rounded-4xl bg-black md:py-3 px-2 py-2 md:px-2   font-bold text-white hover:bg-gray-800 cairo">
+                <button   onClick={() =>
+    window.open(
+      "https://ghfuran-business.systeme.io/356328bd",
+      "_blank"
+    )
+  } className="mt-8 flex w-full items-center justify-center gap-1 rounded-4xl bg-black md:py-3 px-2 py-2 md:px-2   font-bold text-white hover:bg-gray-800 cairo">
                   <ShoppingCart className="h-5 w-5 " />
                   احصلي على الدليل الآن بـ $9 فقط
                 </button>
