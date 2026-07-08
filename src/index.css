@@ -5,7 +5,13 @@
   --color-gold: #c5a059;
   --color-red: #b84a4a;
 }
-
+@theme {
+  --color-gold: #c5a368;
+  --color-gold-light: #f5efe3;
+  --color-cream: #f9f9f8;
+  --color-warm-bg: #f5f3ef;
+  --font-tajawal: "Tajawal", sans-serif;
+}
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-offset, 5rem);

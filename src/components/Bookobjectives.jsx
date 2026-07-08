@@ -20,7 +20,7 @@ const problems = [
   },
   {
     icon: CircleDashed,
-    text: "تائهين.. وتعيدين النفس الدائرة؟",
+    text: "تائهة.. وتعيدين النفس الدائرة؟",
   },
   {
     icon: Brain,

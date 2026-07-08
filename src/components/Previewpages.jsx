@@ -22,7 +22,7 @@ function PreviewSection() {
       className="w-full overflow-hidden"
     >
       <h2 className="tajawal mb-5 mt-6 px-4 text-center text-2xl font-bold leading-snug text-black md:mb-8 md:text-3xl">
-        تصفحى بعض صفحات الدليل
+        تصفحي بعض صفحات الدليل
       </h2>
 
       <div
