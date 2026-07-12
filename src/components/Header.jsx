@@ -59,12 +59,17 @@ function Header() {
   <ShoppingCart className="h-5 w-5 shrink-0" />
   احصلي على الدليل الآن
 </button>
-        <button
-          type="button"
-          className="w-full rounded-full border border-black bg-transparent px-6 py-3.5 text-base font-bold text-black transition hover:bg-gray-50 cairo"
-        >
-          تصفحي محتوى الدليل
-        </button>
+      <button
+  type="button"
+  onClick={() =>
+    document.getElementById("preview")?.scrollIntoView({
+      behavior: "smooth",
+    })
+  }
+  className="w-full rounded-full border border-black bg-transparent px-6 py-3.5 text-base font-bold text-black transition hover:bg-gray-50 cairo"
+>
+  تصفحي محتوى الدليل
+</button>
       </div>
 
       <div className="flex flex-wrap items-center justify-center md:gap-4 gap-8 border-t border-gray-100 pt-6">

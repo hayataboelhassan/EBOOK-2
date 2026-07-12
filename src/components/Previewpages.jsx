@@ -20,6 +20,7 @@ function PreviewSection() {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
       className="w-full overflow-hidden"
+      id="preview"
     >
       <h2 className="tajawal mb-5 mt-6 px-4 text-center text-2xl font-bold leading-snug text-black md:mb-8 md:text-3xl">
         تصفحي بعض صفحات الدليل
@@ -78,10 +79,10 @@ function PreviewSection() {
             className="w-full max-w-4xl overflow-hidden"
           >
             {[
-              "media/ScreenShot Tool -20260513043523.png",
-              "media/ScreenShot Tool -20260513044202.png",
-              "media/ScreenShot Tool -20260513044056.png",
-              "media/ScreenShot Tool -20260513043732.png",
+              "media/Black and White Bold Minimal Workbook Document (2)_pages-to-jpg-0001.jpg",
+              "media/Black and White Bold Minimal Workbook Document (2)_pages-to-jpg-0002.jpg",
+              "media/Black and White Bold Minimal Workbook Document (2)_pages-to-jpg-0003.jpg",
+              "media/Black and White Bold Minimal Workbook Document (2)_pages-to-jpg-0004.jpg",
             ].map((image, index) => (
               <SwiperSlide key={index}>
                 <div

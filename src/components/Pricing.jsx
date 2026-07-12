@@ -18,14 +18,28 @@ function Pricing() {
     seconds: 0,
   });
 useEffect(() => {
-  // تاريخ انتهاء العرض الحقيقي
-  const targetDate = new Date("2026-05-30T23:59:59").getTime();
+  // بداية العرض
+ const offerStart = new Date("2026-07-12T03:40:00").getTime();
+
+  // نهاية العرض = بداية العرض + 7 أيام
+  const offerEnd = offerStart + 7 * 24 * 60 * 60 * 1000;
 
   const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const difference = targetDate - now;
+    const now = Date.now();
 
-    if (difference <= 0) {
+    // قبل بداية العرض
+    if (now < offerStart) {
+      setTimeLeft({
+        days: 7,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      });
+      return;
+    }
+
+    // بعد انتهاء العرض
+    if (now >= offerEnd) {
       clearInterval(interval);
 
       setTimeLeft({
@@ -38,29 +52,23 @@ useEffect(() => {
       return;
     }
 
-    const days = Math.floor(
-      difference / (1000 * 60 * 60 * 24)
-    );
-
-    const hours = Math.floor(
-      (difference % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-    );
-
-    const minutes = Math.floor(
-      (difference % (1000 * 60 * 60)) /
-        (1000 * 60)
-    );
-
-    const seconds = Math.floor(
-      (difference % (1000 * 60)) / 1000
-    );
+    // أثناء العرض
+    const difference = offerEnd - now;
 
     setTimeLeft({
-      days,
-      hours,
-      minutes,
-      seconds,
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) /
+          (1000 * 60 * 60)
+      ),
+      minutes: Math.floor(
+        (difference % (1000 * 60 * 60)) /
+          (1000 * 60)
+      ),
+      seconds: Math.floor(
+        (difference % (1000 * 60)) /
+          1000
+      ),
     });
   }, 1000);
 
